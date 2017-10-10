@@ -1,0 +1,628 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "getOperators",
+      "samples": [
+        "What bus companies are near {location}",
+        "Which bus operators are near {location}",
+        "Who runs buses at {location}",
+        "What's the bus company called in {location}",
+        "What buses are there"
+      ],
+      "slots": [
+        {
+          "name": "location",
+          "type": "AMAZON.GB_CITY",
+          "samples": [
+            "I'm in {location}",
+            "{location}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getPeriodTicket",
+      "samples": [
+        "what ticket should i buy for {period} of travel in {region} for a {userType}",
+        "how much is it to travel for {period} in {region} as a {userType}",
+        "what fare lets me travel for {period} in {region} as a {userType}"
+      ],
+      "slots": [
+        {
+          "name": "period",
+          "type": "AMAZON.DURATION",
+          "samples": [
+            "{period}"
+          ]
+        },
+        {
+          "name": "region",
+          "type": "AMAZON.GB_REGION",
+          "samples": [
+            "I am in {region}"
+          ]
+        },
+        {
+          "name": "userType",
+          "type": "USER_TYPE",
+          "samples": [
+            "{userType}",
+            "I would like a fare for a {userType}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getProducts",
+      "samples": [
+        "What products does {operator} offer in my area",
+        "What tickets can i buy from {operator}",
+        "What ticket options are there for {operator}",
+        "What tickets does {operator} sell",
+        "What fares are available from {operator}",
+        "What tickets can be bought from {operator}",
+        "can i purchase a {ticketType} from {operator}",
+        "does {operator} sell tickets from {locationA} to {locationB}",
+        "What passes can i buy from {operator} ",
+        "which bus passes can i get from {operator} in {location}",
+        "what tickets can i buy"
+      ],
+      "slots": [
+        {
+          "name": "operator",
+          "type": "OPERATOR",
+          "samples": []
+        },
+        {
+          "name": "ticketType",
+          "type": "TICKET_TYPE",
+          "samples": []
+        },
+        {
+          "name": "locationA",
+          "type": "POST_CODE",
+          "samples": []
+        },
+        {
+          "name": "locationB",
+          "type": "POST_CODE",
+          "samples": []
+        },
+        {
+          "name": "location",
+          "type": "AMAZON.GB_CITY",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "getSpecificFare",
+      "samples": [
+        "{valueDescriptor} is it to travel from {locationA} to {locationB} on {travelDate} for a {userType}",
+        "what's the {journeyDescriptor} way to get from {locationA} to {locationB} for a {userType}",
+        "to get from {locationA} to {locationB} is {valueDescriptor} for a {userType}",
+        "how much does it cost to get from {locationA} to {locationB}",
+        "what's the price to get from {locationA} to {locationB}"
+      ],
+      "slots": [
+        {
+          "name": "locationA",
+          "type": "POST_CODE",
+          "samples": [
+            "{locationA}"
+          ]
+        },
+        {
+          "name": "locationB",
+          "type": "POST_CODE",
+          "samples": [
+            "{locationB}"
+          ]
+        },
+        {
+          "name": "travelDate",
+          "type": "AMAZON.DATE",
+          "samples": [
+            "{travelDate}",
+            "I would like to travel on {travelDate}",
+            "I'll be travelling on {travelDate}"
+          ]
+        },
+        {
+          "name": "userType",
+          "type": "USER_TYPE",
+          "samples": [
+            "{userType}"
+          ]
+        },
+        {
+          "name": "journeyDescriptor",
+          "type": "JOURNEY_DESC",
+          "samples": []
+        },
+        {
+          "name": "valueDescriptor",
+          "type": "VALUE_DESC",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "getSpecificProduct",
+      "samples": [
+        "What is a {ticketType}",
+        "what kind of fare is a {ticketType}"
+      ],
+      "slots": [
+        {
+          "name": "ticketType",
+          "type": "TICKET_TYPE",
+          "samples": []
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "JOURNEY_DESC",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "fastest",
+            "synonyms": [
+              "quickest"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "cheapest",
+            "synonyms": [
+              "lowest cost",
+              "least expensive",
+              "cheap",
+              "inexpensive"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "longest",
+            "synonyms": [
+              "long"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "scenic",
+            "synonyms": [
+              "picturesque",
+              "prettiest"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "shortest",
+            "synonyms": [
+              "most direct"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPERATOR",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "First Bus",
+            "synonyms": [
+              "First"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Stagecoach",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Arriva",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Transdev",
+            "synonyms": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "POST_CODE",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "ls178nx",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "ls98ag",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "ls82lq",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "leeds",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "bristol",
+            "synonyms": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "TICKET_TYPE",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "single",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "return",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "day",
+            "synonyms": [
+              "day rider",
+              "first day",
+              "day tripper"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "week",
+            "synonyms": [
+              "first week",
+              "weekly"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "month",
+            "synonyms": [
+              "first month",
+              "monthly"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "USER_TYPE",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "young person under 19",
+            "synonyms": [
+              "child, young person"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "adult",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "group",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "student",
+            "synonyms": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "VALUE_DESC",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "how much",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "cheapest",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "price",
+            "synonyms": [
+              "fare",
+              "cost"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Elicit.Intent-getOperators.IntentSlot-location",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What location are you in?"
+        },
+        {
+          "type": "PlainText",
+          "value": "Where would you like information for?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getPeriodTicket.IntentSlot-period",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What duration do you need a ticket for. Daily, Weekly or Monthly."
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getPeriodTicket.IntentSlot-region",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Could you tell me which region you are in?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getPeriodTicket.IntentSlot-userType",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Are you looking for a fare for a young person, adult, group or a student?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getSpecificFare.IntentSlot-locationA",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Where will you be travelling from?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getSpecificFare.IntentSlot-locationB",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Where will you be travelling to?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getSpecificFare.IntentSlot-travelDate",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What date would you like to travel on?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getSpecificFare.IntentSlot-userType",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Are you looking for a fare for a young person, adult, group or a student?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "getOperators",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "location",
+            "type": "AMAZON.GB_CITY",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getOperators.IntentSlot-location"
+            }
+          }
+        ]
+      },
+      {
+        "name": "getPeriodTicket",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "period",
+            "type": "AMAZON.DURATION",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getPeriodTicket.IntentSlot-period"
+            }
+          },
+          {
+            "name": "region",
+            "type": "AMAZON.GB_REGION",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getPeriodTicket.IntentSlot-region"
+            }
+          },
+          {
+            "name": "userType",
+            "type": "USER_TYPE",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getPeriodTicket.IntentSlot-userType"
+            }
+          }
+        ]
+      },
+      {
+        "name": "getSpecificFare",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "locationA",
+            "type": "POST_CODE",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getSpecificFare.IntentSlot-locationA"
+            }
+          },
+          {
+            "name": "locationB",
+            "type": "POST_CODE",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getSpecificFare.IntentSlot-locationB"
+            }
+          },
+          {
+            "name": "travelDate",
+            "type": "AMAZON.DATE",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getSpecificFare.IntentSlot-travelDate"
+            }
+          },
+          {
+            "name": "userType",
+            "type": "USER_TYPE",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getSpecificFare.IntentSlot-userType"
+            }
+          },
+          {
+            "name": "journeyDescriptor",
+            "type": "JOURNEY_DESC",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          },
+          {
+            "name": "valueDescriptor",
+            "type": "VALUE_DESC",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          }
+        ]
+      }
+    ]
+  }
+}
